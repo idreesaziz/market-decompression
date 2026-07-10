@@ -191,7 +191,8 @@ data/
   author  = {Aziz, Idrees Mustafa},
   year    = {2026},
   month   = {July},
-  note    = {Working paper, Middle East Technical University}
+  note    = {Working paper, Middle East Technical University},
+  url     = {https://github.com/idreesaziz/market-decompression}
 }
 ```
 
