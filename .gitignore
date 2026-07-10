@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.venv/
+venv/
+env/
+
+# Data (too large; see README for download instructions)
+data/*.csv
+data/*.parquet
+
+# Raw job outputs (large; pre-computed results in results/ instead)
+runs/
+*.tgz
+*.tar.gz
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp

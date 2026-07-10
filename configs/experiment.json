@@ -1,0 +1,90 @@
+{
+  "markets": [
+    {
+      "name": "BTCUSDT",
+      "symbol": "BTCUSDT",
+      "csv_path": "data/BTCUSDT_1h.csv",
+      "time_col": "timestamp",
+      "price_col": "close",
+      "max_rows": 25000,
+      "expected_interval_seconds": 3600
+    },
+    {
+      "name": "ETHUSDT",
+      "symbol": "ETHUSDT",
+      "csv_path": "data/ETHUSDT_1h.csv",
+      "time_col": "timestamp",
+      "price_col": "close",
+      "max_rows": 25000,
+      "expected_interval_seconds": 3600
+    },
+    {
+      "name": "SOLUSDT",
+      "symbol": "SOLUSDT",
+      "csv_path": "data/SOLUSDT_1h.csv",
+      "time_col": "timestamp",
+      "price_col": "close",
+      "max_rows": 25000,
+      "expected_interval_seconds": 3600
+    }
+  ],
+  "data": {
+    "min_rows": 1000,
+    "seq_len": 192,
+    "horizons": [5, 20, 60],
+    "split_train_frac": 0.60,
+    "split_val_frac": 0.20,
+    "eval_gap": 64,
+    "winsorize_quantiles": [0.0005, 0.9995]
+  },
+  "design": {
+    "theta_dim": 6,
+    "theta_min": -3.0,
+    "theta_max": 3.0,
+    "seed": 20260622,
+    "pool_size": 4096,
+    "seed_spacefill_n": 24,
+    "seed_spacefill_reps": 2,
+    "anchor_reps": 8,
+    "ioptimal_n": 48,
+    "spacefill_n": 40,
+    "levelset_n": 24,
+    "reconstruction_reps": 3,
+    "calibration_budgets": [5, 10, 20, 40],
+    "reconstruction_budgets": [5, 10],
+    "ioptimal_ridge": 0.001,
+    "diverse_min_distance": 0.18
+  },
+  "train": {
+    "family": "full",
+    "synthetic_episodes_full": 2048,
+    "pretrain_epochs": 12,
+    "finetune_epochs": 180,
+    "batch_size": 64,
+    "lr": 0.0002,
+    "finetune_lr": 0.0008,
+    "latent_weight": 1.0,
+    "device": "cpu",
+    "num_workers": 0,
+    "eval_protocol": "matched_source_full"
+  },
+  "surrogate": {
+    "metric": "log_skill",
+    "kernel": "matern52",
+    "lengthscale": 0.35,
+    "min_noise": 1e-6,
+    "default_noise": 0.05,
+    "beta_levelset": 2.0,
+    "prediction_pool_size": 4096
+  },
+  "runtime": {
+    "run_dir": "runs/final_paper_ready_run",
+    "jobs_dir": "jobs",
+    "results_dir": "results",
+    "logs_dir": "logs",
+    "heartbeat_s": 20,
+    "lock_timeout_s": 120.0,
+    "worker_sleep_s": 2.0,
+    "max_job_retries": 1
+  }
+}
