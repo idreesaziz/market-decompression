@@ -1,3 +1,5 @@
+> **Version note:** This repository contains an earlier cryptocurrency-only experimental version of the project. The current manuscript is [Market Decompression: Learning Latent-State Inverse Maps for Cold-Start Financial Prediction](https://doi.org/10.5281/zenodo.23377391), accepted after peer review at ACM ICAIF 2026 and not included in the proceedings. The experiments and results documented below belong to the earlier version.
+
 <div align="center">
 
 # Market Decompression
